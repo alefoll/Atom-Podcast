@@ -17,6 +17,7 @@
 		<link rel="import" href="lib/paper-item/paper-item.html">
 
 		<link rel="stylesheet" href="css/main.css">
+		<script src="js/main.js"></script>
 	</head>
 
 	<body unresolved>
@@ -56,6 +57,11 @@
 					<paper-item>
 						<core-icon icon="fdgueux:rss"></core-icon>Les Grosses Têtes
 					</paper-item>
+					<template repeat="{{ feed in document.settings.feeds }}">
+						<paper-item>
+							<core-icon icon="fdgueux:rss"></core-icon>{{ feed.name }}
+						</paper-item>
+					</template>
 				</core-selector>
 			</nav>
 

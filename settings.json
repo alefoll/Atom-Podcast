@@ -1,0 +1,12 @@
+{
+	"feeds": [
+		{
+			"name": "L'apéro du Captain",
+			"url": "http://feeds.feedburner.com/CaptainWeb?format=xml"
+		}
+	],
+
+	"height": 600,
+	"width": 800,
+	"fullscreen": false
+}
