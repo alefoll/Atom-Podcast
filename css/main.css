@@ -24,10 +24,13 @@
 	src: local('RobotoDraft Italic'), local('RobotoDraft-Italic'), local('Roboto-Italic'), url(font/RobotoDraft-Italic.woff2) format('woff2'), url(font/RobotoDraft-Italic.woff) format('woff');
 }
 
+html,
 body {
 	font-family: RobotoDraft, 'Helvetica Neue', Helvetica, Arial;
 	margin: 0;
 	padding: 0;
+	height: 100%;
+	width: 100%;
 }
 
 core-toolbar {
@@ -67,4 +70,20 @@ core-icon[icon="fdgueux:rss"] {
 
 .fab > core-icon {
 	margin: 8px;
+}
+
+.player {
+	position: absolute;
+	bottom: 0;
+}
+
+.player > div {
+	background: #eee;
+	display: inline-block;
+	position: relative;
+}
+
+.player core-icon {
+	height: 48px;
+	width: 48px;
 }

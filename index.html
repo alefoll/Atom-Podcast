@@ -23,6 +23,12 @@
 		<core-iconset-svg id="fdgueux" iconSize="24">
 			<svg><defs>
 				<g id="rss"><path d="M5 3L19 3C20.1 3 21 3.9 21 5L21 19C21 20.1 20.1 21 19 21L5 21C3.9 21 3 20.1 3 19L3 5C3 3.9 3.9 3 5 3ZM7.5 15C6.67 15 6 15.67 6 16.5C6 17.33 6.67 18 7.5 18C8.33 18 9 17.33 9 16.5C9 15.67 8.33 15 7.5 15ZM6 10L6 12C9.31 12 12 14.69 12 18L14 18C14 13.58 10.42 10 6 10ZM6 6L6 8C11.5 8 16 12.5 16 18L18 18C18 11.37 12.63 6 6 6Z" /></g>
+				<g id="play"><path d="M8,5.14V19.14L19,12.14L8,5.14Z" /></g>
+				<g id="pause"><path d="M14,19.14H18V5.14H14M6,19.14H10V5.14H6V19.14Z" /></g>
+				<g id="next"><path d="M16,18.14H18V6.14H16M6,18.14L14.5,12.14L6,6.14V18.14Z" /></g>
+				<g id="previous"><path d="M6,18.14V6.14H8V18.14H6M9.5,12.14L18,6.14V18.14L9.5,12.14Z" /></g>
+				<g id="forward"><path d="M13,6V18L21.5,12M4,18L12.5,12L4,6V18Z" /></g>
+				<g id="rewind"><path d="M11.5,12L20,18V6M11,18V6L2.5,12L11,18Z" /></g>
 			</defs></svg>
 		</core-iconset-svg>
 
@@ -37,7 +43,7 @@
 			</div>
 		</core-toolbar>
 
-		<paper-side-menu>
+		<paper-side-menu vertical layout>
 			<nav>
 				<core-selector selected="" selectedAttribute="">
 					<!-- <paper-item disabled>Empty</paper-item> -->
@@ -53,11 +59,33 @@
 				</core-selector>
 			</nav>
 
-			<section>
-				<audio controls>
+			<section class="player" horizontal center-justified layout>
+				<div class="previous">
+					<core-icon icon="fdgueux:previous"></core-icon>
+					<paper-ripple fit></paper-ripple>
+				</div>
+				<div class="rewind">
+					<core-icon icon="fdgueux:rewind"></core-icon>
+					<paper-ripple fit></paper-ripple>
+				</div>
+				<div class="play">
+					<core-icon icon="fdgueux:play"></core-icon>
+					<core-icon icon="fdgueux:pause"></core-icon>
+					<paper-ripple fit></paper-ripple>
+				</div>
+				<div class="forward">
+					<core-icon icon="fdgueux:forward"></core-icon>
+					<paper-ripple fit></paper-ripple>
+				</div>
+				<div class="next">
+					<core-icon icon="fdgueux:next"></core-icon>
+					<paper-ripple fit></paper-ripple>
+				</div>
+
+				<!-- <audio>
 					<source src="test.mp3" type="audio/mpeg">
 					Your browser does not support the audio element.
-				</audio>
+				</audio> -->
 			</section>
 		</paper-side-menu>
 	</body>
