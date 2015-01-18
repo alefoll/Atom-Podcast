@@ -1,0 +1,70 @@
+
+@font-face {
+	font-family: 'RobotoDraft';
+	font-style: normal;
+	font-weight: 400;
+	src: local('RobotoDraft'), local('RobotoDraft-Regular'), local('Roboto-Regular'), url(font/RobotoDraft-Regular.woff2) format('woff2'), url(font/RobotoDraft-Regular.woff) format('woff');
+}
+@font-face {
+	font-family: 'RobotoDraft';
+	font-style: normal;
+	font-weight: 500;
+	src: local('RobotoDraft Medium'), local('RobotoDraft-Medium'), local('Roboto-Medium'), url(font/RobotoDraft-Medium.woff2) format('woff2'), url(font/RobotoDraft-Medium.woff) format('woff');
+}
+@font-face {
+	font-family: 'RobotoDraft';
+	font-style: normal;
+	font-weight: 700;
+	src: local('RobotoDraft Bold'), local('RobotoDraft-Bold'), local('Roboto-Bold'), url(font/RobotoDraft-Bold.woff2) format('woff2'), url(font/RobotoDraft-Bold.woff) format('woff');
+}
+@font-face {
+	font-family: 'RobotoDraft';
+	font-style: italic;
+	font-weight: 400;
+	src: local('RobotoDraft Italic'), local('RobotoDraft-Italic'), local('Roboto-Italic'), url(font/RobotoDraft-Italic.woff2) format('woff2'), url(font/RobotoDraft-Italic.woff) format('woff');
+}
+
+body {
+	font-family: RobotoDraft, 'Helvetica Neue', Helvetica, Arial;
+	margin: 0;
+	padding: 0;
+}
+
+core-toolbar {
+	-webkit-app-region: drag;
+	background: #4285f4;
+	color: #f1f1f1;
+	fill: #f1f1f1;
+}
+
+core-toolbar paper-side-button,
+core-toolbar paper-icon-button,
+.fab {
+	-webkit-app-region: no-drag;
+}
+
+paper-item {
+	color: #000;
+}
+
+core-icon[icon="fdgueux:rss"] {
+	color: #F6521F;
+}
+
+.fab {
+	position: relative;
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background-color: #e53935;
+	color: #fff;
+	overflow: hidden;
+	transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+	transition-delay: 0.2s;
+	box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.fab > core-icon {
+	margin: 8px;
+}

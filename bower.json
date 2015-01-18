@@ -1,0 +1,17 @@
+{
+  "name": "podcast",
+  "version": "0.1.0",
+  "authors": [
+    "Le Moine <lemoine@fdgueux.fr>"
+  ],
+  "main": "main.js",
+  "moduleType": [
+    "es6"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.5.2",
+    "paper-elements": "Polymer/paper-elements#~0.5.2",
+  }
+}

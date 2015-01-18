@@ -1,0 +1,6 @@
+!lib/
+lib/*
+
+!lib/paper-side-menu/
+
+*.mp3
