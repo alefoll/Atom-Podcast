@@ -2,5 +2,7 @@
 lib/*
 
 !lib/paper-side-menu/
+!lib/podcast-items/
+!lib/podcast-player/
 
 *.mp3

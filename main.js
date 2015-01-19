@@ -1,6 +1,7 @@
 var app  = require('app'),
 	Menu = require('menu'),
-	Tray = require('tray');
+	Tray = require('tray'),
+	fs   = require('fs');
 
 var BrowserWindow  = require('browser-window'),
 	GlobalShortcut = require('global-shortcut');
@@ -16,6 +17,8 @@ app.on('window-all-closed', function() {
 });
 
 app.on('ready', function() {
+	global.settings = JSON.parse(fs.readFileSync('settings.json', 'utf8')) || {};
+
 	var size = require('screen').getPrimaryDisplay().workAreaSize;
 
 	window = new BrowserWindow({ width: size.width, height: size.height, frame: false });
@@ -27,21 +30,28 @@ app.on('ready', function() {
 		window.hide();
 	});
 
+
 	appIcon = new Tray('./web.png');
+	appIcon.setToolTip('Podcast');
 
 	var contextMenu = Menu.buildFromTemplate([
 		{ label: 'Dev Tools', click: function() { window.toggleDevTools(); } },
 		{ label: 'Exit', click: function() { window.destroy(); GlobalShortcut.unregisterAll(); app.quit(); } }
 	]);
 
-	appIcon.on('clicked', function() {
-		window.show();
-	});
-
-	appIcon.setToolTip('Podcast');
 	appIcon.setContextMenu(contextMenu);
 
+	appIcon.on('clicked', function() {
+		// window.show();
+		app.quit();
+	});
+
+
 	GlobalShortcut.register('F5', function() {
+		window.webContents.reload();
+	});
+
+	GlobalShortcut.register('Ctrl+R', function() {
 		window.webContents.reload();
 	});
 

@@ -5,16 +5,14 @@
 		<title>Podcast</title>
 
 		<link rel="import" href="lib/core-toolbar/core-toolbar.html">
-		<link rel="import" href="lib/core-menu/core-menu.html">
 		<link rel="import" href="lib/core-iconset-svg/core-iconset-svg.html">
 
 		<link rel="import" href="lib/paper-icon-button/paper-icon-button.html">
-		<link rel="import" href="lib/paper-menu-button/paper-menu-button.html">
-		<link rel="import" href="lib/paper-dropdown/paper-dropdown.html">
 		<link rel="import" href="lib/paper-side-menu/paper-side-menu.html">
 		<link rel="import" href="lib/paper-ripple/paper-ripple.html">
-		<link rel="import" href="lib/paper-fab/paper-fab.html">
-		<link rel="import" href="lib/paper-item/paper-item.html">
+
+		<link rel="import" href="lib/podcast-items/podcast-items.html">
+		<link rel="import" href="lib/podcast-player/podcast-player.html">
 
 		<link rel="stylesheet" href="css/main.css">
 		<script src="js/main.js"></script>
@@ -46,53 +44,10 @@
 
 		<paper-side-menu vertical layout>
 			<nav>
-				<core-selector selected="" selectedAttribute="">
-					<!-- <paper-item disabled>Empty</paper-item> -->
-					<paper-item>
-						<core-icon icon="fdgueux:rss"></core-icon>L'apéro du Captain
-					</paper-item>
-					<paper-item>
-						<core-icon icon="fdgueux:rss"></core-icon>Le podcast de ZQSD
-					</paper-item>
-					<paper-item>
-						<core-icon icon="fdgueux:rss"></core-icon>Les Grosses Têtes
-					</paper-item>
-					<template repeat="{{ feed in document.settings.feeds }}">
-						<paper-item>
-							<core-icon icon="fdgueux:rss"></core-icon>{{ feed.name }}
-						</paper-item>
-					</template>
-				</core-selector>
+				<podcast-items></podcast-items>
 			</nav>
 
-			<section class="player" horizontal center-justified layout>
-				<div class="previous">
-					<core-icon icon="fdgueux:previous"></core-icon>
-					<paper-ripple fit></paper-ripple>
-				</div>
-				<div class="rewind">
-					<core-icon icon="fdgueux:rewind"></core-icon>
-					<paper-ripple fit></paper-ripple>
-				</div>
-				<div class="play">
-					<core-icon icon="fdgueux:play"></core-icon>
-					<core-icon icon="fdgueux:pause"></core-icon>
-					<paper-ripple fit></paper-ripple>
-				</div>
-				<div class="forward">
-					<core-icon icon="fdgueux:forward"></core-icon>
-					<paper-ripple fit></paper-ripple>
-				</div>
-				<div class="next">
-					<core-icon icon="fdgueux:next"></core-icon>
-					<paper-ripple fit></paper-ripple>
-				</div>
-
-				<!-- <audio>
-					<source src="test.mp3" type="audio/mpeg">
-					Your browser does not support the audio element.
-				</audio> -->
-			</section>
+			<podcast-player horizontal center-justified layout></podcast-player>
 		</paper-side-menu>
 	</body>
 </html>

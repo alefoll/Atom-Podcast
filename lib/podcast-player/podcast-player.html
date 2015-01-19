@@ -1,0 +1,54 @@
+<link rel="import" href="../core-icon/core-icon.html">
+<link rel="import" href="../paper-ripple/paper-ripple.html">
+
+<polymer-element name="podcast-player">
+	<template>
+		<div class="player previous">
+			<core-icon icon="fdgueux:previous"></core-icon>
+			<paper-ripple fit></paper-ripple>
+		</div>
+		<div class="player rewind">
+			<core-icon icon="fdgueux:rewind"></core-icon>
+			<paper-ripple fit></paper-ripple>
+		</div>
+		<div class="player play">
+			<core-icon icon="fdgueux:play"></core-icon>
+			<core-icon icon="fdgueux:pause"></core-icon>
+			<paper-ripple fit></paper-ripple>
+		</div>
+		<div class="player forward">
+			<core-icon icon="fdgueux:forward"></core-icon>
+			<paper-ripple fit></paper-ripple>
+		</div>
+		<div class="player next">
+			<core-icon icon="fdgueux:next"></core-icon>
+			<paper-ripple fit></paper-ripple>
+		</div>
+
+		<!-- <audio>
+			<source src="test.mp3" type="audio/mpeg">
+			Your browser does not support the audio element.
+		</audio> -->
+
+		<style>
+			.player {
+				background: #eee;
+				display: inline-block;
+				position: relative;
+			}
+
+			.player core-icon {
+				height: 48px;
+				width: 48px;
+			}
+		</style>
+	</template>
+
+	<script>
+		Polymer('podcast-player', {
+			created: function() {
+				this.feeds = global.settings.feeds;
+			}
+		});
+	</script>
+</polymer-element>

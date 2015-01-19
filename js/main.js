@@ -1,7 +1,9 @@
 var ipc = require('ipc');
 
+global.settings = require('remote').getGlobal('settings');
+
 window.addEventListener('polymer-ready', function(evt) {
-	var core = document.querySelector('core-selector');
+	var core = document.getElementsByTagName('podcast-items')[0].shadowRoot.getElementsByTagName('core-selector')[0];
 
 	ipc.on('key', function(message) {
 		if (message === 'MediaPlayPause')
@@ -13,6 +15,6 @@ window.addEventListener('polymer-ready', function(evt) {
 	});
 });
 
-window.onbeforeunload = function(e) {
-	return false;
-};
+// window.onbeforeunload = function(e) {
+// 	return false;
+// };

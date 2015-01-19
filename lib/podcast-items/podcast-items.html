@@ -1,0 +1,31 @@
+<link rel="import" href="../core-icon/core-icon.html">
+<link rel="import" href="../core-selector/core-selector.html">
+<link rel="import" href="../paper-item/paper-item.html">
+
+<polymer-element name="podcast-items">
+	<!-- <paper-item disabled>Empty</paper-item> -->
+
+	<template>
+		<core-selector selected="1" selectedAttribute="">
+			<template repeat="{{ feed in feeds }}">
+				<paper-item>
+					<core-icon icon="fdgueux:rss"></core-icon>{{ feed.name }}
+				</paper-item>
+			</template>
+		</core-selector>
+
+		<style>
+			core-icon[icon="fdgueux:rss"] {
+				color: #F6521F;
+			}
+		</style>
+	</template>
+
+	<script>
+		Polymer('podcast-items', {
+			created: function() {
+				this.feeds = global.settings.feeds;
+			}
+		});
+	</script>
+</polymer-element>

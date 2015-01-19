@@ -50,10 +50,6 @@ paper-item {
 	color: #000;
 }
 
-core-icon[icon="fdgueux:rss"] {
-	color: #F6521F;
-}
-
 .fab {
 	position: relative;
 	display: inline-block;
@@ -72,18 +68,7 @@ core-icon[icon="fdgueux:rss"] {
 	margin: 8px;
 }
 
-.player {
+podcast-player {
 	position: absolute;
 	bottom: 0;
-}
-
-.player > div {
-	background: #eee;
-	display: inline-block;
-	position: relative;
-}
-
-.player core-icon {
-	height: 48px;
-	width: 48px;
 }
