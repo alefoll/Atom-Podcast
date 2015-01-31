@@ -1,6 +1,6 @@
 <link rel="import" href="../paper-side-menu/paper-side-button.html">
 
-<polymer-element name="paper-side-menu">
+<polymer-element name="paper-side-menu" attributes="open">
 	<template>
 		<link rel="stylesheet" href="paper-side-menu.css">
 
@@ -12,29 +12,32 @@
 
 	<script>
 		Polymer('paper-side-menu', {
-			created: function() {
-				var papers = document.querySelectorAll('paper-side-menu > nav paper-item'),
-					from   = 0;
+			open:   false,
+			isOpen: false,
 
+			domReady: function() {
+				var sideButton = document.querySelector('paper-side-button');
 
-				for (var i = 0; i < papers.length; i++) {
-					from += 425;
-
-					papers[i].style.transform = "translateY(" + from + "px)";
+				if (this.open) {
+					this.openMenu();
+					this.isOpen = true;
 				}
+
+				var self = this;
+				sideButton.addEventListener('paper-side-button', function(e) {
+					if (self.isOpen)
+						self.closeMenu();
+					else
+						self.openMenu();
+
+					self.isOpen = !self.isOpen;
+				});
 			},
-
-			ready: function() {
-				var sideButton = document.querySelector('paper-side-button'),
-					container = this.$.container;
-
-				sideButton.addEventListener('paper-side-button-open', function(e) {
-					container.className += ' show-menu';
-				});
-
-				sideButton.addEventListener('paper-side-button-close', function(e) {
-					container.className = container.className.replace(/ show-menu/, '');
-				});
+			openMenu: function() {
+				this.setAttribute('open', '');
+			},
+			closeMenu: function() {
+				this.removeAttribute('open');
 			}
 		});
 	</script>

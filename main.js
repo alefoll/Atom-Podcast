@@ -17,8 +17,6 @@ app.on('window-all-closed', function() {
 });
 
 app.on('ready', function() {
-	global.settings = JSON.parse(fs.readFileSync('settings.json', 'utf8')) || {};
-
 	var size = require('screen').getPrimaryDisplay().workAreaSize;
 
 	window = new BrowserWindow({ width: size.width, height: size.height, frame: false });
@@ -55,15 +53,15 @@ app.on('ready', function() {
 		window.webContents.reload();
 	});
 
-	GlobalShortcut.register('MediaPlayPause', function() {
-		window.webContents.send('key', 'MediaPlayPause');
-	});
+	// GlobalShortcut.register('MediaPlayPause', function() {
+	// 	window.webContents.send('key', 'MediaPlayPause');
+	// });
 
-	GlobalShortcut.register('MediaNextTrack', function() {
-		window.webContents.send('key', 'MediaNextTrack');
-	});
+	// GlobalShortcut.register('MediaNextTrack', function() {
+	// 	window.webContents.send('key', 'MediaNextTrack');
+	// });
 
-	GlobalShortcut.register('MediaPreviousTrack', function() {
-		window.webContents.send('key', 'MediaPreviousTrack');
-	});
+	// GlobalShortcut.register('MediaPreviousTrack', function() {
+	// 	window.webContents.send('key', 'MediaPreviousTrack');
+	// });
 });

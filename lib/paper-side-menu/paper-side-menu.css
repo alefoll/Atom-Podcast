@@ -1,9 +1,7 @@
-.content-nav::content > nav {
+.content-nav::content > * {
 	position: absolute;
-	z-index: 1001;
 
 	width: 30%;
-	min-width: 150px;
 	min-height: calc(100% - 64px);
 
 	background: #fff;
@@ -29,13 +27,12 @@
 }
 
 /* Shown menu */
-.show-menu .content-nav::content > nav,
-.show-menu .content-nav::content paper-item {
+:host([open]) .content-nav::content > * {
 	transform: translate(0, 0) !important;
 	transition: transform 0.6s;
 }
 
-.show-menu .content::content > * {
+:host([open]) .content::content > * {
 	width: calc(70% - 12px);
 	margin-left: calc(30% + 12px);
 

@@ -1,33 +1,25 @@
-<polymer-element name="paper-side-button" extends="paper-icon-button" attributes="icon open off" on-click="{{onClick}}">
+<polymer-element name="paper-side-button" extends="paper-icon-button" attributes="icon off" on-click="{{onClick}}">
 	<template>
 		<shadow></shadow>
 	</template>
 
 	<script>
 		Polymer({
-			isOn: false,
-			open: false,
-
-			off: '',
-			on:  '',
+			off:  '',
 
 			domReady: function() {
-				this.on = this.icon;
-
-				if (this.open)
-					this.onClick();
+				if (document.querySelector('paper-side-menu').hasAttribute('open'))
+					this.switch();
 			},
-
 			onClick: function() {
-				if (this.isOn) {
-					this.icon = this.on;
-					this.fire('paper-side-button-close');
-				} else {
-					this.icon = this.off;
-					this.fire('paper-side-button-open');
-				}
+				this.fire('paper-side-button');
 
-				this.isOn = !this.isOn;
+				this.switch();
+			},
+			switch: function() {
+				var tmp   = this.icon;
+				this.icon = this.off;
+				this.off  = tmp;
 			}
 		});
 	</script>

@@ -1,9 +1,7 @@
 var ipc = require('ipc');
 
-global.settings = require('remote').getGlobal('settings');
-
 window.addEventListener('polymer-ready', function(evt) {
-	var core = document.getElementsByTagName('podcast-items')[0].shadowRoot.getElementsByTagName('core-selector')[0];
+	var core = document.querySelector('paper-side-menu > nav core-selector');
 
 	ipc.on('key', function(message) {
 		if (message === 'MediaPlayPause')

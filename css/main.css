@@ -72,3 +72,8 @@ podcast-player {
 	position: absolute;
 	bottom: 0;
 }
+
+.show-menu /deep/ paper-item {
+	transform: translate(0, 0) !important;
+	transition: transform 0.6s;
+}

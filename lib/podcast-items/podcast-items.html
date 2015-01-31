@@ -1,22 +1,37 @@
 <link rel="import" href="../core-icon/core-icon.html">
 <link rel="import" href="../core-selector/core-selector.html">
+
 <link rel="import" href="../paper-item/paper-item.html">
 
 <polymer-element name="podcast-items">
-	<!-- <paper-item disabled>Empty</paper-item> -->
-
 	<template>
-		<core-selector selected="1" selectedAttribute="">
-			<template repeat="{{ feed in feeds }}">
-				<paper-item>
-					<core-icon icon="fdgueux:rss"></core-icon>{{ feed.name }}
-				</paper-item>
+		<core-selector id="core" selected="1" selectedAttribute>
+			<template bind="{{ feeds }}">
+				<template repeat>
+					<paper-item>
+						<core-icon icon="fdgueux:rss"></core-icon>{{ name }}
+					</paper-item>
+				</template>
+
 			</template>
 		</core-selector>
+
+		<!-- <paper-item>
+			<core-icon icon="add"></core-icon>Ajouter un podcast
+		</paper-item> -->
 
 		<style>
 			core-icon[icon="fdgueux:rss"] {
 				color: #F6521F;
+			}
+
+			:host-context(paper-side-menu) paper-item {
+				transition-delay: 0.6s;
+			}
+
+			:host-context(paper-side-menu[open]) paper-item {
+				transform: translate(0, 0) !important;
+				transition: transform 0.6s;
 			}
 		</style>
 	</template>
@@ -24,7 +39,20 @@
 	<script>
 		Polymer('podcast-items', {
 			created: function() {
-				this.feeds = global.settings.feeds;
+				this.feeds = JSON.parse(localStorage.getItem('feeds'));
+
+			},
+			domReady: function() {
+				var papers = this.$.core.querySelectorAll('paper-item'),
+					from   = 0;
+
+				// console.log(papers);
+
+				for (var i = 0; i < papers.length; i++) {
+					from += 425;
+
+					papers[i].style.transform = "translateY(" + from + "px)";
+				}
 			}
 		});
 	</script>

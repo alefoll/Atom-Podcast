@@ -5,10 +5,12 @@
 		<title>Podcast</title>
 
 		<link rel="import" href="lib/core-toolbar/core-toolbar.html">
+		<link rel="import" href="lib/core-selector/core-selector.html">
 		<link rel="import" href="lib/core-iconset-svg/core-iconset-svg.html">
 
 		<link rel="import" href="lib/paper-icon-button/paper-icon-button.html">
 		<link rel="import" href="lib/paper-side-menu/paper-side-menu.html">
+		<link rel="import" href="lib/paper-item/paper-item.html">
 		<link rel="import" href="lib/paper-ripple/paper-ripple.html">
 
 		<link rel="import" href="lib/podcast-items/podcast-items.html">
@@ -32,9 +34,10 @@
 		</core-iconset-svg>
 
 		<core-toolbar>
-			<paper-side-button open icon="menu" off="close"></paper-side-button>
+			<paper-side-button icon="menu" off="close"></paper-side-button>
 			<span flex>Podcast</span>
 			<paper-icon-button icon="cached" onclick="window.location.reload()"></paper-icon-button>
+			<paper-icon-button icon="add"></paper-icon-button>
 			<paper-icon-button icon="more-vert"></paper-icon-button>
 			<div class="fab" onclick="window.close()">
 				<core-icon icon="close" aria-label="close"></core-icon>
@@ -42,7 +45,7 @@
 			</div>
 		</core-toolbar>
 
-		<paper-side-menu vertical layout>
+		<paper-side-menu open vertical layout>
 			<nav>
 				<podcast-items></podcast-items>
 			</nav>
